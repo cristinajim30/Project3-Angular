@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './exercise1.component.css'
 })
 export class Exercise1Component {
-
+  userName: string = 'Name';
 }
