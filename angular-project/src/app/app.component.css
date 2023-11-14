@@ -1,8 +1,9 @@
+
+
 body {
     min-height: 100vh;
     font-size: 100%;
-    font-family: var(--tipo-principal);
-    font-smooth: always;
+    /*font-smooth: always;*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: flex;
@@ -11,6 +12,7 @@ body {
   
   /*CSS container app.component*/
   #page-container {
+    /*background-color: blue;*/
     position: relative;
     min-height: 100vh;
     max-width: 100%;

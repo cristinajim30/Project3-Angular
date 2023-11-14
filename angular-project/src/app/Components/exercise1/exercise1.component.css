@@ -1,0 +1,62 @@
+#first_container{
+    /*display: flex;*/
+    justify-content: center;
+    margin:20px;
+    text-align: center;
+    /*background-color: lightpink;*/
+}
+#main_container{
+    /*background-color: aqua;*/
+    /*display: flex;*/
+    /*position: relative;*/
+    margin:20px;
+    justify-content: center;
+    text-align: center;
+}
+#settings_container{
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+    
+}
+h1{
+    font-size: 5rem;
+    color: #a958d6;
+    
+}
+h2{
+    font-size: 1.5rem;
+}
+label{
+    /*margin-right: 15px;*/
+    text-align: left;
+    padding: 20px 10px;
+}
+input{
+    font-size: 16px;
+    width: auto;
+    color: rgb(73, 72, 72);
+    border: none;
+    border-bottom: 1px solid rgb(144, 41, 158);;
+    outline: none;
+    padding: 15px;
+}
+select{
+    font-size: 16px;
+    width: auto;
+    color: rgb(73, 72, 72);
+    border: none;
+    border-bottom: 1px solid rgb(144, 41, 158);;
+    outline: none;
+    padding: 15px;
+    font-family: 'Poppins';
+    font-weight:600;   
+}
+.select_container{
+    display: flex;
+    /*background-color: lightcoral;*/
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px grey;
+}
