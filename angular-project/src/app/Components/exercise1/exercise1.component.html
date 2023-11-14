@@ -1,5 +1,5 @@
 <div id="first_container">
-    <h1 id="greeting" [style.font-family]="fontSelected">Hello {{userName | uppercase }}</h1>
+    <h1 id="greeting" [style.font-family]="fontSelected" [style.fontSize.px]="numberSize">Hello {{userName | uppercase }}</h1>
     
     
 </div>
@@ -8,15 +8,21 @@
     <div id="settings_container">
         <label for="name">Firstname: </label>
         <input class="field_firstname" id="firstname" [(ngModel)]="userName"  type="text" name="firstname" placeholder="Write your firstname"  />
-        <div class="select_container">
-            <label for="font_style">Choose your favorite font family:</label>
-            <select class="list_fontfamily" name="font" id="select_ff" [(ngModel)]="optionSelected" (change)="selectOption()" >
-                <option *ngFor="let item of fontList" value="{{item}}">{{item}}</option>  
-            </select>
+        <div class="preferences_container">
+            <div class="select_container">
+                <label for="font_style">Choose your favorite font family:</label>
+                <select class="list_fontfamily" name="font" id="select_ff" [(ngModel)]="optionSelected" (change)="selectOption()" >
+                    <option *ngFor="let item of fontList" value="{{item}}">{{item}}</option>  
+                </select>
+            </div>
+            <div class="fsize_container">
+                <label for="size">Font-size: </label>
+                <input class="field_size" id="fsize" title="Number from 0 to 100" type="text" [(ngModel)]="inputSize" (keyup)="checkNumber($event)" name="fsize" placeholder="Write a size"  />
+                px
+            </div>
         </div>
 
-        <label for="size">Font-size: </label>
-        <input class="field_size" id="fontsize" [(ngModel)]="numberSize" title="Number from 0 to 100" type="text" name="fontsize" placeholder="Write a size"  />
+        
     </div>
 </div>
 

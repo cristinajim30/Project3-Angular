@@ -16,16 +16,49 @@ export class Exercise1Component  {
 
   optionSelected: string = this.fontList[0]; 
   fontSelected: string = this.fontList[0];
+  numberSize: any = 50; //size by default
+  inputSize: string = ''; // Recovering the input value
   
-  /*getName():void{
-    console.log('Valor del input:', this.userName);
-    //this.userName = this.userName;
-  }*/
+
 
   selectOption(): void {
     console.log('Opción seleccionada:', this.optionSelected);
     this.fontSelected = this.optionSelected;
 
+  }
+
+
+  checkNumber(event: KeyboardEvent): any {
+    //console.log('Tecla presionada:', event.key);
+
+    // Allow backward key
+    if (event.key === 'Backspace') {
+      return;
+    }
+    // Recovering the current input value
+    const inputValue = (event.target as HTMLInputElement).value;
+
+    // Check if value is a number from 0 to 300
+    const isValidNumber = /^\d+$/.test(inputValue) && +inputValue >= 0 && +inputValue <= 300;
+
+    if (!isValidNumber) {
+      alert('Ingrese un número válido del 0 al 300');
+      this.inputSize = '';
+
+    } else{ //if number is valid
+      console.log("es numero valido");
+      this.changeSize(); //call function to change size
+      //this.numberSize = inputValue;
+    }
+
+  }
+
+  
+
+  changeSize(): void {
+    //console.log("valor input: ", this.inputSize);
+    this.numberSize = this.inputSize;
+    //console.log("numberSize: ", this.numberSize);
   }
   
 }
