@@ -19,4 +19,9 @@ export class CalculatorService {
   getOperations(): Operations[] {
     return this.operationsList.slice();
   }
+
+  deleteOperationById(id: string): void {
+    //create a new array by removing the record passed by parameter
+    this.operationsList = this.operationsList.filter(operation => operation.id !== id);
+  }
 }

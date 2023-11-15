@@ -23,13 +23,12 @@ export class Exercise2Component {
   operationList: string[] =['add', 'subtract', 'multiply', 'divide']
   selectedOperation: string = this.operationList[0]; // add operation by default
   idOperation: number;
-  indexOpTitleCard: number; //operation's number which display in title card
-  //private listOperations: Operations[];
+  //indexOpTitleCard: number; //operation's number which display in title card
 
   constructor(public calculatorService: CalculatorService) {
     //this.listOperations = [];
     this.idOperation = 1;
-    this.indexOpTitleCard =0;
+    //this.indexOpTitleCard =0;
   }
 
   calculate(): void {
@@ -60,18 +59,18 @@ export class Exercise2Component {
         this.result = 0;
     }
     this.inicialResult = this.result;
-    console.log("antes: ", this.indexOpTitleCard);
-    console.log("idOperation: ", this.idOperation);
+    //console.log("antes: ", this.indexOpTitleCard);
+    //console.log("idOperation: ", this.idOperation);
     
     this.createOperation(this.result);
     //console.log("antes: ", this.indexOpTitleCard);
     //this.indexOpTitleCard++;
-    console.log("dsp: ", this.indexOpTitleCard);
+    //console.log("dsp: ", this.indexOpTitleCard);
     
     
   }
 
-  createOperation(result: number){
+  createOperation(result: number):void{
     const timeNow = new Date();
     const time = timeNow.getHours() + ':' +timeNow.getMinutes() + ':' + timeNow.getSeconds();
     console.log("hora: ", time);
@@ -86,11 +85,15 @@ export class Exercise2Component {
 
   
 
-  clean(): void{
+  cleanCalculator(): void{
     this.inputN1 = '';
     this.inputN2 = '';
     this.inicialResult = '';
     this.selectedOperation = this.operationList[0]; 
 
+  }
+
+  cleanOperation(id:string):void{
+    this.calculatorService.deleteOperationById(id);
   }
 }

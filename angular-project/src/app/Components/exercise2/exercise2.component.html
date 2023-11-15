@@ -27,7 +27,7 @@
               <button class="btn btn-success" (click)="calculate()">Calculate</button>
             </div>
             <div class="mb-3">
-                <button class="btn btn-danger" (click)="clean()">Clean</button>
+                <button class="btn btn-danger" (click)="cleanCalculator()">Clean</button>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
   <div class="cards_container">
         <div class="card" style="width: 18rem;" *ngFor="let operation of calculatorService.getOperations()">
           <div class="card-header">
-              Operation - {{indexOpTitleCard+ 1}}
+              Operation 
             </div>
         
           <ul class="list-group list-group-flush" >
@@ -49,6 +49,9 @@
             <li class="list-group-item">Operation request: {{ operation.id }} </li>
             <li class="list-group-item">Result: {{ operation.result }}</li>
           </ul>
+          <div class="button_card">
+            <button class="btn btn-danger" (click)="cleanOperation(operation.id)">Clean Operation</button>
+          </div>
         </div><!--end card-->
     </div><!--end cards_container-->
 </div>
