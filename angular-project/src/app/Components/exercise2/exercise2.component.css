@@ -25,8 +25,40 @@
     align-items: center;
     /*background-color: lightcoral;*/
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 6px grey;
+}
+.result_container{
+    display: flow-root;
+    width: auto;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+.form-label {
+    margin: 10px;
+}
+input{
+    margin:10px;
+    width: auto;
+}
+select{
+    width: auto;
+}
+.butons_container{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    margin:15px;
+}
+.cards_container{
+    display: flex;
+    justify-content: flex-start;
+}
+.card{
+    margin: 40px;
 }

@@ -7,29 +7,48 @@
     <div id="main_container">
         <div class="mb-3">
             <label for="number_first" class="form-label">First number: </label>
-            <input id="n1" type="number" [(ngModel)]="number1" placeholder="Write the first number"  />
+            <input id="n1" type="number" [(ngModel)]="inputN1" placeholder="Write the first number"  />
         </div>
 
         <div class="mb-3">
-          <label>Choose the operation:
-            <select class="form-select" [(ngModel)]="selectedOperation">
+          <label for ="operations" class="form-label">Choose the operation:</label>
+            <select  [(ngModel)]="selectedOperation">
                 <option *ngFor="let item of operationList" value="{{item}}">{{item}}</option> 
             </select>
-          </label>
+          
         </div>
 
         <div class="mb-3">
             <label for="number_second" class="form-label">Second number: </label>
-            <input type="number" [(ngModel)]="number2" placeholder="Write the second number" />
+            <input type="number" [(ngModel)]="inputN2" placeholder="Write the second number" />
         </div>
-        <div class="mb-3">
-          <button class="btn btn-dark" (click)="calculate()">Calcular</button>
+        <div class="butons_container">
+            <div class="mb-3">
+              <button class="btn btn-success" (click)="calculate()">Calculate</button>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-danger" (click)="clean()">Clean</button>
+            </div>
         </div>
     </div>
 </div>
 <div class="result_container">
-  <h2>Resultado</h2>
+  <h2 class="display_result">Resultado: {{inicialResult}} </h2>
 </div>
 <div class="historic_container">
   <h2>Historical</h2>
+  <div class="cards_container">
+        <div class="card" style="width: 18rem;" *ngFor="let operation of calculatorService.getOperations()">
+          <div class="card-header">
+              Operation - {{indexOpTitleCard+ 1}}
+            </div>
+        
+          <ul class="list-group list-group-flush" >
+
+            <li class="list-group-item">Time: {{ operation.time }} </li>
+            <li class="list-group-item">Operation request: {{ operation.id }} </li>
+            <li class="list-group-item">Result: {{ operation.result }}</li>
+          </ul>
+        </div><!--end card-->
+    </div><!--end cards_container-->
 </div>
