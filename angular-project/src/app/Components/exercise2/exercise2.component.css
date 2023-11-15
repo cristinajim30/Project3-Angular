@@ -71,3 +71,9 @@ select{
 .card{
     margin: 40px;
 }
+#cleanOp{
+    margin:0px!important;
+}
+td{
+    align-items: center;
+}

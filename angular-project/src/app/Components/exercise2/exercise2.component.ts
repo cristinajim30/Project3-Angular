@@ -19,16 +19,17 @@ export class Exercise2Component {
   number2: number = 0;
   inputN2: any = ''; //display by default in input1
   result: number = 0;
-  inicialResult:any = '';
-  operationList: string[] =['add', 'subtract', 'multiply', 'divide']
+  inicialResult: any = '';
+  titleH2: string = '';
+  operationList: string[] =['add', 'subtract', 'multiply', 'divide'];
+  tableColumns: string[] = ['Time', 'Operation Request', 'Result', 'Remove'];
   selectedOperation: string = this.operationList[0]; // add operation by default
   idOperation: number;
-  //indexOpTitleCard: number; //operation's number which display in title card
+  isVisibleTable:boolean;
 
   constructor(public calculatorService: CalculatorService) {
-    //this.listOperations = [];
     this.idOperation = 1;
-    //this.indexOpTitleCard =0;
+    this.isVisibleTable = false;
   }
 
   calculate(): void {
@@ -58,16 +59,11 @@ export class Exercise2Component {
       default:
         this.result = 0;
     }
-    this.inicialResult = this.result;
-    //console.log("antes: ", this.indexOpTitleCard);
-    //console.log("idOperation: ", this.idOperation);
     
+    this.inicialResult = 'Resultado: ' + this.result;
     this.createOperation(this.result);
-    //console.log("antes: ", this.indexOpTitleCard);
-    //this.indexOpTitleCard++;
-    //console.log("dsp: ", this.indexOpTitleCard);
-    
-    
+    this.displayTable();
+  
   }
 
   createOperation(result: number):void{
@@ -81,8 +77,17 @@ export class Exercise2Component {
     };
     this.calculatorService.addOperation(operation);
     this.idOperation++;
+    
   }
 
+  displayTable():void{
+    //console.log("isVisible: ", this.isVisibleTable);
+    if(this.calculatorService.getOperations().length != 0){
+      this.titleH2= 'Historical Operations';
+    }
+    this.isVisibleTable = true;
+    
+  }
   
 
   cleanCalculator(): void{
@@ -95,5 +100,8 @@ export class Exercise2Component {
 
   cleanOperation(id:string):void{
     this.calculatorService.deleteOperationById(id);
+    if(this.calculatorService.getOperations().length === 0){
+      this.titleH2= '';
+    }
   }
 }

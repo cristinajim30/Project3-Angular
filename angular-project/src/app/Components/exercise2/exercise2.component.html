@@ -33,25 +33,28 @@
     </div>
 </div>
 <div class="result_container">
-  <h2 class="display_result">Resultado: {{inicialResult}} </h2>
+  <h2 class="display_result">{{inicialResult}} </h2>
 </div>
 <div class="historic_container">
-  <h2>Historical Operations</h2>
-  <div class="cards_container">
-        <div class="card" style="width: 18rem;" *ngFor="let operation of calculatorService.getOperations()">
-          <div class="card-header">
-              Operation 
-            </div>
-        
-          <ul class="list-group list-group-flush" >
+  <h2>{{titleH2}}</h2>
+  <div class="table-responsive" [style.display]="isVisibleTable ? 'block' : 'none'" *ngIf="calculatorService.getOperations().length > 0">
+    <table class="table" >
+        <thead>
+            <tr>
+                <th *ngFor="let column of tableColumns">{{ column }}</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let operation of calculatorService.getOperations()">
+            <tr>
+    
+              <td>{{operation.time}}</td>
+              <td>{{operation.id}}</td>
+              <td>{{operation.result}}</td>
+              <td><button class="btn btn-danger" id="cleanOp" (click)="cleanOperation(operation.id)">Clean Operation</button></td>
+            </tr>
+           
+          </tbody>
+    </table>
+  </div>
 
-            <li class="list-group-item">Time: {{ operation.time }} </li>
-            <li class="list-group-item">Operation request: {{ operation.id }} </li>
-            <li class="list-group-item">Result: {{ operation.result }}</li>
-          </ul>
-          <div class="button_card">
-            <button class="btn btn-danger" (click)="cleanOperation(operation.id)">Clean Operation</button>
-          </div>
-        </div><!--end card-->
-    </div><!--end cards_container-->
 </div>
