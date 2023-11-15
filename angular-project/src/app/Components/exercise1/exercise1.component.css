@@ -1,18 +1,9 @@
-#first_container{
-    /*display: flex;*/
+#first_container, #main_container{
     justify-content: center;
     margin:20px;
     text-align: center;
-    /*background-color: lightpink;*/
 }
-#main_container{
-    /*background-color: aqua;*/
-    /*display: flex;*/
-    /*position: relative;*/
-    margin:20px;
-    justify-content: center;
-    text-align: center;
-}
+
 #settings_container{
     justify-content: center;
     text-align: center;

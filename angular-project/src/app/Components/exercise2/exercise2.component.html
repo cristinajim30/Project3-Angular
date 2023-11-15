@@ -1,1 +1,35 @@
-<p>exercise2 works!</p>
+<div id="calculator_container">
+    <div id="first_container">
+        <h1>Calculator</h1>
+        <p>Enter the first and second number of the operation you want, as well as the type of operation (addition, subtraction, multiplication or division). Use the "calculate" button to see the result of the operation.
+           <br/> You can view the operation history below.</p>
+    </div>
+    <div id="main_container">
+        <div class="mb-3">
+            <label for="number_first" class="form-label">First number: </label>
+            <input id="n1" type="number" [(ngModel)]="number1" placeholder="Write the first number"  />
+        </div>
+
+        <div class="mb-3">
+          <label>Choose the operation:
+            <select class="form-select" [(ngModel)]="selectedOperation">
+                <option *ngFor="let item of operationList" value="{{item}}">{{item}}</option> 
+            </select>
+          </label>
+        </div>
+
+        <div class="mb-3">
+            <label for="number_second" class="form-label">Second number: </label>
+            <input type="number" [(ngModel)]="number2" placeholder="Write the second number" />
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-dark" (click)="calculate()">Calcular</button>
+        </div>
+    </div>
+</div>
+<div class="result_container">
+  <h2>Resultado</h2>
+</div>
+<div class="historic_container">
+  <h2>Historical</h2>
+</div>
