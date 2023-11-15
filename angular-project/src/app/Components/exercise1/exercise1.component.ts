@@ -12,24 +12,24 @@ import { FormsModule } from '@angular/forms';
 export class Exercise1Component  {
   userName: string = ''.toUpperCase();
   fontList: string[] = ['Poppins','Roboto Mono', 'Dancing Script', 'Josefin Sans'];
+  aligmentList: string[] = ['Left','Center', 'Right'];
  
 
   optionSelected: string = this.fontList[0]; 
   fontSelected: string = this.fontList[0];
-  numberSize: any = 50; //size by default
+  numberSize: any = 60; //size by default
   inputSize: string = ''; // Recovering the input value
-  
+  cbAligment: string = this.aligmentList[1]; //check this radio by default
+  aligmentSelected: string = this.aligmentList[1]; //aligment by default
 
 
-  selectOption(): void {
-    console.log('Opción seleccionada:', this.optionSelected);
+  selectStyle(): void {
     this.fontSelected = this.optionSelected;
 
   }
 
 
   checkNumber(event: KeyboardEvent): any {
-    //console.log('Tecla presionada:', event.key);
 
     // Allow backward key
     if (event.key === 'Backspace') {
@@ -48,17 +48,17 @@ export class Exercise1Component  {
     } else{ //if number is valid
       console.log("es numero valido");
       this.changeSize(); //call function to change size
-      //this.numberSize = inputValue;
     }
 
   }
 
   
-
   changeSize(): void {
-    //console.log("valor input: ", this.inputSize);
     this.numberSize = this.inputSize;
-    //console.log("numberSize: ", this.numberSize);
+  }
+
+  selectAligment(): void {
+    this.aligmentSelected = this.cbAligment;
   }
   
 }
