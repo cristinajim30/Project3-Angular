@@ -38,6 +38,15 @@
     margin-bottom: 40px;
     padding: 20px;
 }
+.historic_container{
+    display: flow-root;
+    width: auto;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+.historic_container h1{
+    text-align: left;
+}
 .form-label {
     margin: 10px;
 }
