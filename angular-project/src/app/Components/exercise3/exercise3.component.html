@@ -13,6 +13,24 @@
             <input type="date" id="f_date" name="date_field" />
 
         </div>
+        <div class="table-responsive" >
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th *ngFor="let column of tableColumns">{{ column }}</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let operation of transactionList">
+                    <tr>
+                        <td>{{operation.id}}</td>
+                      <td>{{operation.amount}}</td>
+                      <td>{{operation.balance}}</td>
+                      <td>{{operation.label}}</td>
+                      <td><td>{{operation.date}}</td>
+                    </tr>
+                   
+                  </tbody>
+            </table>
 
         <!--<div *ngFor="let dato of transactionList">
             <p>ID: {{ dato.id }}</p>

@@ -6,13 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-exercise3',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './exercise3.component.html',
   styleUrl: './exercise3.component.css'
 })
 export class Exercise3Component implements OnInit {
   
   transactionList: any[] = [];
+  tableColumns: string[] = ['id', 'amount', 'balance', 'label', 'date'];
 
   constructor(private _transService: TransactionsService) {}
   public get transService(): TransactionsService {
@@ -22,7 +23,7 @@ export class Exercise3Component implements OnInit {
     this._transService = value;
   }
   ngOnInit(): void {
-    //this.getTransactions();
+    this.getTransactions();
     console.log("ngOnInit");
     
   }

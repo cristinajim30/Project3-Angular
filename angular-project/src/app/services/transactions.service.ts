@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TransactionsService {
-  private transactionsUrl = 'assets/data/transactions.json';
+  public transactionsUrl = 'assets/data/transactions.json';
   constructor(private http: HttpClient) {}
 
   //subscribe to the Observable to receive and manage the response asynchronously
