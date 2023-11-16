@@ -36,4 +36,6 @@ export class Exercise3Component implements OnInit {
       console.log(this.transactionList); 
     });
   }
+
+  
 }
